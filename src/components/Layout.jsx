@@ -208,7 +208,7 @@ export const Header = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0B0B0B] text-white" data-testid="main-footer">
+    <footer className="bg-[#0B0B0B] text-white pb-24 md:pb-0" data-testid="main-footer">
       {/* Premium top border with subtle gradient */}
       <div className="h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
       
