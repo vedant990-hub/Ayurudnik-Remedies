@@ -1,54 +1,8 @@
 import React from 'react';
-import { Pill, Leaf, FlaskConical, Package } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Products = () => {
-  const productCategories = [
-    {
-      icon: Pill,
-      name: 'Antibiotics & Antimicrobials',
-      description: 'Advanced formulations for bacterial and parasitic infections',
-      products: [
-        'Broad-spectrum antibiotics',
-        'Targeted antimicrobial agents',
-        'Combination therapy solutions',
-        'Injectable and oral formulations'
-      ]
-    },
-    {
-      icon: Leaf,
-      name: 'Nutritional Supplements',
-      description: 'Essential vitamins, minerals, and growth promoters',
-      products: [
-        'Multi-vitamin complexes',
-        'Calcium & mineral supplements',
-        'Growth enhancers',
-        'Immunity boosters'
-      ]
-    },
-    {
-      icon: FlaskConical,
-      name: 'Veterinary Pharmaceuticals',
-      description: 'Therapeutic solutions for various animal health conditions',
-      products: [
-        'Anti-inflammatory agents',
-        'Analgesics and pain management',
-        'Hormonal preparations',
-        'Cardiovascular support'
-      ]
-    },
-    {
-      icon: Package,
-      name: 'Feed Additives',
-      description: 'Performance-enhancing feed supplements',
-      products: [
-        'Digestive enzymes',
-        'Probiotic formulations',
-        'Toxin binders',
-        'Feed efficiency enhancers'
-      ]
-    }
-  ];
-
   return (
     <div data-testid="products-page">
       {/* Hero */}
@@ -68,139 +22,84 @@ export const Products = () => {
         </div>
       </section>
 
-      {/* Product Grid */}
-      <section className="py-24 bg-zinc-50" data-testid="product-grid">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {productCategories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <div 
-                  key={index}
-                  className="bg-white border border-zinc-200 p-10 hover:border-zinc-900 transition-colors duration-300"
-                  data-testid={`product-category-${index}`}
-                >
-                  <Icon size={40} strokeWidth={1.5} className="mb-6 text-[#0B0B0B]" />
-                  <h2 className="font-['Playfair_Display'] text-3xl font-medium mb-4 text-[#0B0B0B]">
-                    {category.name}
-                  </h2>
-                  <p className="text-zinc-600 mb-8 leading-relaxed">
-                    {category.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {category.products.map((product, pIndex) => (
-                      <li 
-                        key={pIndex}
-                        className="flex items-start gap-3 text-sm text-zinc-700"
-                      >
-                        <span className="inline-block w-1 h-1 bg-[#0B0B0B] mt-2"></span>
-                        <span>{product}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Species Coverage */}
-      <section className="py-24 bg-white" data-testid="species-coverage">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4">
-              Application
+      {/* Product Categories */}
+      <section className="py-16 sm:py-24 md:py-32 lg:py-40 bg-white" data-testid="product-categories">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-16 sm:mb-20 md:mb-28">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4 sm:mb-6">
+              What We Offer
             </p>
-            <h2 className="font-['Playfair_Display'] text-4xl md:text-5xl font-medium text-[#0B0B0B]">
-              Multi-Species Solutions
+            <h2 className="font-['Playfair_Display'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#0B0B0B] mb-6 sm:mb-8">
+              Our Products
             </h2>
+            <p className="text-zinc-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+              Quality veterinary and nutritional supplement formats for multiple animal species.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-zinc-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-14">
             {[
-              'Cattle',
-              'Poultry',
-              'Swine',
-              'Equine',
-              'Companion Animals'
-            ].map((species, index) => (
-              <div 
+              {
+                title: 'Liquid Supplements',
+                description: 'Fast-absorbing liquid formulations for precise dosing and high bioavailability.',
+                link: '/products/liquids',
+                image: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              },
+              {
+                title: 'Powdered Supplements',
+                description: 'Versatile powder formulations for daily nutrition, performance, and recovery support.',
+                link: '/products/powders',
+                image: 'https://images.pexels.com/photos/6291275/pexels-photo-6291275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              },
+              {
+                title: 'Tablets & Boluses',
+                description: 'Stable, accurately dosed tablet formulations for professional livestock applications.',
+                link: '/products/tablets',
+                image: 'https://images.pexels.com/photos/3880180/pexels-photo-3880180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              },
+              {
+                title: 'Soft Chews',
+                description: 'Palatable functional soft chews designed for companion animal supplementation.',
+                link: '/products/soft-chews',
+                image: 'https://images.pexels.com/photos/6866520/pexels-photo-6866520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              }
+            ].map((format, index) => (
+              <Link 
                 key={index}
-                className="bg-white p-8 text-center hover:bg-zinc-50 transition-colors"
-                data-testid={`species-${index}`}
+                to={format.link}
+                data-testid={`product-format-${index}`}
+                className="block bg-white"
               >
-                <div className="text-4xl font-['Playfair_Display'] font-bold text-zinc-100 mb-4">
-                  0{index + 1}
+                <div className="h-full flex flex-col">
+                  {/* Image - Prominent */}
+                  <div className="mb-8 sm:mb-10 md:mb-12 h-56 sm:h-64 md:h-72 lg:h-80 overflow-hidden rounded-sm flex-shrink-0">
+                    <img 
+                      src={format.image}
+                      alt={format.title}
+                      className="w-full h-full object-cover grayscale-img"
+                    />
+                  </div>
+                  
+                  {/* Content Container */}
+                  <div className="px-6 sm:px-7 md:px-8 pb-6 sm:pb-7 md:pb-8 flex flex-col flex-grow">
+                    {/* Title */}
+                    <h3 className="font-['Playfair_Display'] text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium mb-4 sm:mb-5 md:mb-6 text-[#0B0B0B] leading-tight">
+                      {format.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-zinc-600 text-sm sm:text-base leading-relaxed flex-grow mb-6 sm:mb-7 md:mb-8">
+                      {format.description}
+                    </p>
+                    
+                    {/* CTA Link */}
+                    <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-[#0B0B0B] hover:text-zinc-600 transition-colors">
+                      Learn More <ArrowRight size={14} strokeWidth={2} />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-medium text-[#0B0B0B]">
-                  {species}
-                </h3>
-              </div>
+              </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Private Label */}
-      <section className="py-24 bg-[#0B0B0B] text-white" data-testid="private-label">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-6">
-                For Partners
-              </p>
-              <h2 className="font-['Playfair_Display'] text-4xl md:text-5xl font-medium mb-8 leading-tight">
-                Private Label & Custom Formulations
-              </h2>
-              <p className="text-zinc-400 leading-relaxed mb-8">
-                Partner with us to develop and manufacture custom formulations under your brand. Our private label services include formulation development, regulatory support, packaging design, and scalable manufacturing.
-              </p>
-              <ul className="space-y-4 text-zinc-400">
-                <li className="flex items-start gap-3">
-                  <span className="inline-block w-1.5 h-1.5 bg-white mt-2"></span>
-                  <span>Minimum order quantities tailored to your needs</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="inline-block w-1.5 h-1.5 bg-white mt-2"></span>
-                  <span>Complete regulatory documentation support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="inline-block w-1.5 h-1.5 bg-white mt-2"></span>
-                  <span>Flexible packaging and labeling options</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="inline-block w-1.5 h-1.5 bg-white mt-2"></span>
-                  <span>Dedicated account management</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="relative h-[500px]">
-              <img 
-                src="https://images.pexels.com/photos/12951634/pexels-photo-12951634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Manufacturing vats"
-                className="w-full h-full object-cover grayscale-img"
-                data-testid="private-label-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Assurance */}
-      <section className="py-24 bg-white" data-testid="quality-assurance">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
-              Our Promise
-            </p>
-            <h2 className="font-['Playfair_Display'] text-4xl md:text-5xl font-medium mb-8 text-[#0B0B0B]">
-              Quality at Every Step
-            </h2>
-            <p className="text-zinc-600 leading-relaxed text-lg">
-              Every product undergoes multi-stage quality control testing, from raw material verification to finished product stability studies. Our commitment to quality ensures consistent, reliable results that veterinarians and animal owners can trust.
-            </p>
           </div>
         </div>
       </section>
