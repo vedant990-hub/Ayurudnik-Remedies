@@ -80,11 +80,6 @@ code {
     }
 }
 
-/* Grayscale filter for images */
-.grayscale-img {
-    filter: grayscale(100%);
-}
-
 /* Core Values animations and refinements */
 .core-values-card {
     position: relative;

@@ -14,7 +14,7 @@ export const Home = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover grayscale-img"
+            className="w-full h-full object-cover"
             data-testid="hero-video"
           >
             <source src="https://assets.mixkit.co/videos/preview/mixkit-industrial-factory-interior-with-workers-31565-large.mp4" type="video/mp4" />
@@ -70,7 +70,7 @@ export const Home = () => {
               <img 
                 src="https://images.pexels.com/photos/8325755/pexels-photo-8325755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Laboratory research"
-                className="w-full h-full object-cover grayscale-img"
+                className="w-full h-full object-cover"
                 data-testid="about-image"
               />
             </div>
@@ -120,7 +120,7 @@ export const Home = () => {
                 title: 'Soft Chews',
                 description: 'Palatable functional soft chews designed for companion animal supplementation.',
                 link: '/products/soft-chews',
-                image: 'https://images.pexels.com/photos/6866520/pexels-photo-6866520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/softchew1.png'
               }
             ].map((format, index) => (
               <Link 
@@ -135,7 +135,7 @@ export const Home = () => {
                     <img 
                       src={format.image}
                       alt={format.title}
-                      className="w-full h-full object-cover grayscale-img"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   

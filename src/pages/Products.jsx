@@ -76,7 +76,7 @@ export const Products = () => {
                     <img 
                       src={format.image}
                       alt={format.title}
-                      className="w-full h-full object-cover grayscale-img"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   
