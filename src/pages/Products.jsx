@@ -49,7 +49,7 @@ export const Products = () => {
                 title: 'Powdered Supplements',
                 description: 'Versatile powder formulations for daily nutrition, performance, and recovery support.',
                 link: '/products/powders',
-                image: 'https://images.pexels.com/photos/6291275/pexels-photo-6291275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/powder1.png'
               },
               {
                 title: 'Tablets & Boluses',
@@ -61,7 +61,7 @@ export const Products = () => {
                 title: 'Soft Chews',
                 description: 'Palatable functional soft chews designed for companion animal supplementation.',
                 link: '/products/soft-chews',
-                image: 'https://images.pexels.com/photos/6866520/pexels-photo-6866520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/softchew1.png'
               }
             ].map((format, index) => (
               <Link 

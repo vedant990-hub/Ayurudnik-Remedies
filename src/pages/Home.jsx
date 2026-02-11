@@ -108,7 +108,7 @@ export const Home = () => {
                 title: 'Powdered Supplements',
                 description: 'Versatile powder formulations for daily nutrition, performance, and recovery support.',
                 link: '/products/powders',
-                image: 'https://images.pexels.com/photos/6291275/pexels-photo-6291275.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/powder1.png'
               },
               {
                 title: 'Tablets & Boluses',

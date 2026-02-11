@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, X, ArrowRight } from 'lucide-react';
+import { MessageCircle, X, ArrowRight, Beaker, Package, Droplets } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Liquids = () => {
@@ -164,7 +164,7 @@ export const Liquids = () => {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3 sm:mb-4">
               Key Advantages
             </p>
-            <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-[#0B0B0B] mb-6">
+            <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl font-medium text-[#0B0B0B] mb-6">
               Benefits of Liquid Nutritional Supplements for Animals
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-zinc-600 leading-relaxed">
@@ -172,70 +172,90 @@ export const Liquids = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex gap-4 items-start">
-                <div className="w-2 h-2 bg-[#0B0B0B] rounded-full mt-2.5 flex-shrink-0"></div>
-                <p className="text-sm sm:text-base text-zinc-700 leading-relaxed">
-                  {benefit}
-                </p>
-              </div>
-            ))}
+          <div className="overflow-x-auto max-w-6xl mx-auto">
+            <div className="space-y-6">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex gap-5 items-start">
+                  <div className="w-3 h-3 bg-[#0B0B0B] rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-base sm:text-lg font-semibold text-[#0B0B0B] leading-relaxed">
+                    {benefit}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Available Formats & Volumes Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white" data-testid="formats-section">
+      <section className="py-24 md:py-32 lg:py-40 bg-gradient-to-b from-amber-50/30 via-stone-50/40 to-amber-50/30" data-testid="formats-section">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="mb-12 md:mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3 sm:mb-4">
+          <div className="max-w-3xl mb-16 md:mb-20">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
               Product Specifications
             </p>
-            <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-[#0B0B0B] mb-6">
+            <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl font-medium text-[#0B0B0B] mb-6 leading-[1.1]">
               Available Formats & Volumes
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-zinc-600 leading-relaxed">
+            <div className="w-16 h-[2px] bg-[#0B0B0B] mb-8"></div>
+            <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
               Ayurudnik liquid supplements are available in various formulations and packaging options.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Typical Volumes */}
-            <div>
-              <h3 className="font-['Playfair_Display'] text-xl sm:text-2xl font-medium text-[#0B0B0B] mb-6">
-                Typical Volumes per Package
-              </h3>
-              <div className="space-y-3">
+            <div className="bg-white rounded-lg shadow-lg shadow-zinc-200/50 p-10 md:p-12 hover:shadow-xl hover:shadow-zinc-200/60 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-zinc-50 to-zinc-100 flex items-center justify-center shadow-sm">
+                  <Beaker size={24} strokeWidth={1.5} className="text-[#0B0B0B]" />
+                </div>
+                <h3 className="font-['Playfair_Display'] text-2xl md:text-3xl font-medium text-[#0B0B0B]">
+                  Typical Volumes per Package
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-3">
                 {availableVolumes.map((volume, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-[#0B0B0B] rounded-full"></div>
-                    <p className="text-sm sm:text-base text-zinc-700">
-                      {volume}
-                    </p>
-                  </div>
+                  <button 
+                    key={index} 
+                    className="inline-flex items-center px-6 py-3 bg-white border-2 border-zinc-200 rounded-full text-sm md:text-base font-semibold text-[#0B0B0B] hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white transition-all duration-300 cursor-pointer"
+                  >
+                    {volume}
+                  </button>
                 ))}
               </div>
             </div>
 
             {/* Packaging Options */}
-            <div>
-              <h3 className="font-['Playfair_Display'] text-xl sm:text-2xl font-medium text-[#0B0B0B] mb-6">
-                Packaging Options
-              </h3>
-              <div className="space-y-3">
+            <div className="bg-white rounded-lg shadow-lg shadow-zinc-200/50 p-10 md:p-12 hover:shadow-xl hover:shadow-zinc-200/60 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-zinc-50 to-zinc-100 flex items-center justify-center shadow-sm">
+                  <Package size={24} strokeWidth={1.5} className="text-[#0B0B0B]" />
+                </div>
+                <h3 className="font-['Playfair_Display'] text-2xl md:text-3xl font-medium text-[#0B0B0B]">
+                  Packaging Options
+                </h3>
+              </div>
+              <div className="space-y-4 mb-10">
                 {packagingOptions.map((option, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-[#0B0B0B] rounded-full"></div>
-                    <p className="text-sm sm:text-base text-zinc-700">
+                  <div 
+                    key={index} 
+                    className="flex items-center gap-5 p-5 rounded-lg bg-gradient-to-r from-zinc-50 to-white hover:from-zinc-100 hover:to-zinc-50 transition-all duration-300 group"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 group-hover:shadow-md transition-shadow">
+                      <Droplets size={18} strokeWidth={1.5} className="text-[#0B0B0B]" />
+                    </div>
+                    <p className="text-sm md:text-base text-[#0B0B0B] font-semibold">
                       {option}
                     </p>
                   </div>
                 ))}
               </div>
-              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed mt-8 pt-8 border-t border-zinc-200">
-                Custom packaging and labeling are available upon request.
-              </p>
+              <div className="bg-gradient-to-r from-amber-50 to-stone-50 border-l-4 border-[#0B0B0B] p-6 rounded-r-lg">
+                <p className="text-sm text-zinc-700 leading-relaxed">
+                  Custom packaging and labeling are available upon request.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -256,15 +276,30 @@ export const Liquids = () => {
             </p>
           </div>
 
-          <div className="space-y-4 mb-12">
-            {applicationAreas.map((area, index) => (
-              <div key={index} className="flex gap-4 items-start">
-                <div className="w-2 h-2 bg-[#0B0B0B] rounded-full mt-2.5 flex-shrink-0"></div>
-                <p className="text-sm sm:text-base text-zinc-700 leading-relaxed">
-                  {area}
-                </p>
-              </div>
-            ))}
+          <div className="mb-12">
+            <div className="overflow-x-auto max-w-4xl">
+              <table className="w-full bg-white border border-zinc-200">
+                <thead>
+                  <tr className="bg-[#0B0B0B] border-b border-zinc-200">
+                    <th className="px-6 py-4 text-left text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
+                      Formulation Focus Areas
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200">
+                  {applicationAreas.map((area, index) => (
+                    <tr key={index} className="hover:bg-zinc-50 transition-colors">
+                      <td className="px-6 py-5 text-sm sm:text-base text-zinc-700 leading-relaxed font-semibold">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-[#0B0B0B] rounded-full flex-shrink-0"></div>
+                          {area}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <p className="text-sm sm:text-base md:text-lg text-zinc-600 leading-relaxed border-t border-zinc-200 pt-8">
@@ -287,8 +322,8 @@ export const Liquids = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {goodToKnow.map((item, index) => (
-              <div key={index} className="bg-zinc-50 border border-zinc-200 p-6">
-                <p className="text-sm text-zinc-600 leading-relaxed">
+              <div key={index} className="bg-zinc-50 border border-zinc-200 p-5 hover:bg-white hover:border-zinc-300 hover:shadow-lg transition-all duration-300 cursor-default">
+                <p className="text-base md:text-lg text-zinc-700 leading-relaxed font-semibold">
                   {item}
                 </p>
               </div>
