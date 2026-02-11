@@ -272,21 +272,28 @@ export const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-zinc-100" data-testid="cta-section">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 text-center">
-          <h2 className="font-['Playfair_Display'] text-4xl md:text-6xl font-medium mb-8 text-[#0B0B0B]">
-            Partner With Us
-          </h2>
-          <p className="text-zinc-600 text-lg mb-12 max-w-3xl mx-auto">
-            Looking for a reliable animal nutrition manufacturing partner? From formulation to final delivery, we support veterinarians, distributors, and brands with high-quality supplements, private label solutions, and GMP-certified manufacturing.
-          </p>
-          <Link 
-            to="/contact"
-            data-testid="cta-contact"
-            className="inline-flex items-center gap-3 bg-[#0B0B0B] text-white hover:bg-zinc-800 h-14 px-10 uppercase tracking-[0.15em] text-xs font-bold transition-all duration-300"
-          >
-            Get In Touch <ArrowRight size={16} strokeWidth={2} />
-          </Link>
+      <section 
+        className="py-24 md:py-32 relative" 
+        style={{backgroundImage: 'url(/hero.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center'}}
+        data-testid="cta-section"
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-2xl">
+            <h2 className="font-['Playfair_Display'] text-4xl md:text-6xl font-medium mb-8 text-white">
+              Partner With Us
+            </h2>
+            <p className="text-zinc-100 text-lg mb-12">
+              Looking for a reliable animal nutrition manufacturing partner? From formulation to final delivery, we support veterinarians, distributors, and brands with high-quality supplements, private label solutions, and GMP-certified manufacturing.
+            </p>
+            <Link 
+              to="/contact"
+              data-testid="cta-contact"
+              className="inline-flex items-center gap-3 bg-[#0B0B0B] text-white hover:bg-zinc-800 h-14 px-10 uppercase tracking-[0.15em] text-xs font-bold transition-all duration-300"
+            >
+              Get In Touch <ArrowRight size={16} strokeWidth={2} />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
