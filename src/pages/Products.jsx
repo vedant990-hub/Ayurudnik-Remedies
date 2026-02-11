@@ -55,7 +55,7 @@ export const Products = () => {
                 title: 'Tablets & Boluses',
                 description: 'Stable, accurately dosed tablet formulations for professional livestock applications.',
                 link: '/products/tablets',
-                image: 'https://images.pexels.com/photos/3880180/pexels-photo-3880180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/tablet1.png'
               },
               {
                 title: 'Soft Chews',
