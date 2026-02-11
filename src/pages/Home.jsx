@@ -1,9 +1,48 @@
-import React from 'react';
-import { ArrowRight, CheckCircle2, Factory, Truck, Users } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ArrowRight, CheckCircle2, Factory, Truck, Users, Microscope, FlaskConical, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Statistics } from '../components/Statistics';
 
 export const Home = () => {
+  const [isProcessVisible, setIsProcessVisible] = useState(false);
+  const [isWhyChooseVisible, setIsWhyChooseVisible] = useState(false);
+  const processRef = useRef(null);
+  const whyChooseRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === processRef.current) {
+              setIsProcessVisible(true);
+            }
+            if (entry.target === whyChooseRef.current) {
+              setIsWhyChooseVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (processRef.current) {
+      observer.observe(processRef.current);
+    }
+    if (whyChooseRef.current) {
+      observer.observe(whyChooseRef.current);
+    }
+
+    return () => {
+      if (processRef.current) {
+        observer.unobserve(processRef.current);
+      }
+      if (whyChooseRef.current) {
+        observer.unobserve(whyChooseRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div data-testid="home-page">
       {/* Hero Section */}
@@ -178,41 +217,58 @@ export const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
+          <div ref={whyChooseRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
             {[
               {
                 title: 'GMP-Certified Manufacturing',
                 description: 'Internationally compliant facilities with strict quality control at every stage.',
-                icon: Factory
+                icon: Factory,
+                bgColor: 'bg-orange-50',
+                iconColor: 'text-orange-600',
+                hoverBg: 'group-hover:bg-orange-100'
               },
               {
                 title: 'Clinically Backed Formulations',
                 description: 'Products developed through research, testing, and field validation.',
-                icon: CheckCircle2
+                icon: CheckCircle2,
+                bgColor: 'bg-blue-50',
+                iconColor: 'text-blue-600',
+                hoverBg: 'group-hover:bg-blue-100'
               },
               {
                 title: 'Global Supply Capability',
                 description: 'Reliable production and logistics supporting distributors and exporters worldwide.',
-                icon: Truck
+                icon: Truck,
+                bgColor: 'bg-green-50',
+                iconColor: 'text-green-600',
+                hoverBg: 'group-hover:bg-green-100'
               },
               {
                 title: 'Private Label Expertise',
                 description: 'End-to-end support from formulation to packaging and scale-up.',
-                icon: Users
+                icon: Users,
+                bgColor: 'bg-purple-50',
+                iconColor: 'text-purple-600',
+                hoverBg: 'group-hover:bg-purple-100'
               }
             ].map((item, index) => {
               const Icon = item.icon;
               return (
                 <div 
                   key={index}
-                  className="group"
+                  className={`group transition-all duration-[1400ms] ease-out ${
+                    isWhyChooseVisible 
+                      ? 'opacity-100 translate-x-0' 
+                      : 'opacity-0 -translate-x-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 300}ms` }}
                   data-testid={`why-item-${index}`}
                 >
                   {/* Card */}
                   <div className="bg-white border border-zinc-300 p-6 sm:p-7 md:p-8 h-full group-hover:border-zinc-500 group-hover:shadow-md group-hover:-translate-y-1 transition-all duration-250">
                     {/* Icon */}
-                    <div className="mb-4 sm:mb-5 md:mb-6">
-                      <Icon size={40} strokeWidth={1.2} className="text-zinc-700 group-hover:text-zinc-900 transition-colors duration-250" />
+                    <div className={`mb-4 sm:mb-5 md:mb-6 w-16 h-16 rounded-lg ${item.bgColor} ${item.hoverBg} flex items-center justify-center transition-all duration-300`}>
+                      <Icon size={36} strokeWidth={1.5} className={`${item.iconColor} transition-colors duration-300`} />
                     </div>
                     
                     {/* Title */}
@@ -233,40 +289,118 @@ export const Home = () => {
       </section>
 
       {/* How We Work */}
-      <section className="py-24 md:py-32 bg-white" data-testid="how-we-work">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-zinc-50 to-white relative overflow-hidden" data-testid="how-we-work">
+        {/* Subtle industrial texture background */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'repeating-linear-gradient(0deg, #000 0px, #000 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, #000 0px, #000 1px, transparent 1px, transparent 2px)',
+          backgroundSize: '40px 40px'
+        }}></div>
+        
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="text-center mb-16 md:mb-20">
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-500 mb-3">
               Our Process
             </p>
-            <h2 className="font-['Playfair_Display'] text-4xl md:text-5xl font-medium text-[#0B0B0B]">
+            <h2 className="font-['Playfair_Display'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#0B0B0B]">
               From Science to Solution
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-zinc-200">
-            {[
-              { step: 'Research', description: 'Veterinary science meets innovation' },
-              { step: 'Formulation', description: 'Precision in every ingredient' },
-              { step: 'Manufacturing', description: 'GMP-certified production' },
-              { step: 'Distribution', description: 'Global reach, local support' }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="bg-white p-8"
-                data-testid={`process-step-${index}`}
-              >
-                <div className="text-6xl font-['Playfair_Display'] font-bold text-zinc-100 mb-4">
-                  0{index + 1}
-                </div>
-                <h3 className="text-xl font-medium text-[#0B0B0B] mb-3">
-                  {item.step}
-                </h3>
-                <p className="text-zinc-600 text-sm">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+          {/* Timeline Container */}
+          <div className="relative max-w-7xl mx-auto">
+            {/* Connecting Line - Hidden on mobile, visible on desktop */}
+            <div className="hidden md:block absolute top-[72px] left-0 right-0 h-[2px] bg-gradient-to-r from-zinc-200 via-zinc-300 to-zinc-200" 
+                 style={{ marginLeft: '12%', marginRight: '12%' }}>
+            </div>
+
+            {/* Process Steps Grid */}
+            <div ref={processRef} className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+              {[
+                { 
+                  step: 'Research', 
+                  description: 'Veterinary science meets innovation',
+                  icon: Microscope,
+                  number: '01',
+                  color: 'blue',
+                  bgColor: 'bg-blue-50',
+                  borderColor: 'border-blue-200',
+                  hoverBg: 'group-hover:bg-blue-600',
+                  hoverBorder: 'group-hover:border-blue-600',
+                  iconColor: 'text-blue-600'
+                },
+                { 
+                  step: 'Formulation', 
+                  description: 'Precision in every ingredient',
+                  icon: FlaskConical,
+                  number: '02',
+                  color: 'teal',
+                  bgColor: 'bg-teal-50',
+                  borderColor: 'border-teal-200',
+                  hoverBg: 'group-hover:bg-teal-600',
+                  hoverBorder: 'group-hover:border-teal-600',
+                  iconColor: 'text-teal-600'
+                },
+                { 
+                  step: 'Manufacturing', 
+                  description: 'GMP-certified production',
+                  icon: Factory,
+                  number: '03',
+                  color: 'orange',
+                  bgColor: 'bg-orange-50',
+                  borderColor: 'border-orange-200',
+                  hoverBg: 'group-hover:bg-orange-600',
+                  hoverBorder: 'group-hover:border-orange-600',
+                  iconColor: 'text-orange-600'
+                },
+                { 
+                  step: 'Distribution', 
+                  description: 'Global reach, local support',
+                  icon: Globe,
+                  number: '04',
+                  color: 'green',
+                  bgColor: 'bg-green-50',
+                  borderColor: 'border-green-200',
+                  hoverBg: 'group-hover:bg-green-600',
+                  hoverBorder: 'group-hover:border-green-600',
+                  iconColor: 'text-green-600'
+                }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={index}
+                    className={`group relative transition-all duration-[1400ms] ease-out ${
+                      isProcessVisible 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 -translate-x-8'
+                    }`}
+                    style={{ transitionDelay: `${index * 300}ms` }}
+                    data-testid={`process-step-${index}`}
+                  >
+                    {/* Card */}
+                    <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative h-full border border-zinc-100">
+                      {/* Step Number Badge */}
+                      <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-[#0B0B0B] text-white flex items-center justify-center font-bold text-sm shadow-lg">
+                        {item.number}
+                      </div>
+
+                      {/* Icon */}
+                      <div className={`w-14 h-14 rounded-lg ${item.bgColor} border-2 ${item.borderColor} flex items-center justify-center mb-6 ${item.hoverBorder} ${item.hoverBg} transition-all duration-300`}>
+                        <Icon className={`w-7 h-7 ${item.iconColor} group-hover:text-white transition-colors duration-300`} strokeWidth={1.5} />
+                      </div>
+
+                      {/* Content */}
+                      <h3 className="text-xl md:text-2xl font-bold text-[#0B0B0B] mb-3 tracking-tight">
+                        {item.step}
+                      </h3>
+                      <p className="text-zinc-600 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
