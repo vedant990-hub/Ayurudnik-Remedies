@@ -102,7 +102,7 @@ export const Home = () => {
                 title: 'Liquid Supplements',
                 description: 'Fast-absorbing liquid formulations for precise dosing and high bioavailability.',
                 link: '/products/liquids',
-                image: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/liquid1.png'
               },
               {
                 title: 'Powdered Supplements',

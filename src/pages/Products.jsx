@@ -12,7 +12,7 @@ export const Products = () => {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
               Our Portfolio
             </p>
-            <h1 className="font-['Playfair_Display'] text-5xl md:text-7xl font-medium text-[#0B0B0B] leading-[1.1] mb-8">
+            <h1 className="font-['Playfair_Display'] text-4xl md:text-6xl font-medium text-[#0B0B0B] leading-[1.1] mb-8">
               Comprehensive Animal Health Solutions
             </h1>
             <p className="text-lg text-zinc-600 leading-relaxed">
@@ -43,7 +43,7 @@ export const Products = () => {
                 title: 'Liquid Supplements',
                 description: 'Fast-absorbing liquid formulations for precise dosing and high bioavailability.',
                 link: '/products/liquids',
-                image: 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                image: '/liquid1.png'
               },
               {
                 title: 'Powdered Supplements',
