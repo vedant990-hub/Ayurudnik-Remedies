@@ -173,8 +173,8 @@ export const Cosmetics = () => {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4 sm:mb-6">
                 Innovation
               </p>
-              <h2 className="font-['Playfair_Display'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#0B0B0B] mb-6 leading-tight">
-                Custom Formulation & R&D Expertise
+              <h2 className="font-['Playfair_Display'] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-[#0B0B0B] mb-6 leading-tight">
+                Custom Formulation / R&D Expertise
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-zinc-600 leading-relaxed">
                 Our dedicated R&D team collaborates closely with clients to develop bespoke pet cosmetic formulations aligned with brand positioning, regulatory frameworks, and market demand. From concept development to formulation optimization, we deliver scalable, compliant, and high-performance cosmetic solutions.
