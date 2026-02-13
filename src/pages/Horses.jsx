@@ -202,7 +202,7 @@ export const Horses = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/5256144/pexels-photo-5256144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/horse-2.png"
                 alt="Equine supplement formulation and care"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -218,7 +218,7 @@ export const Horses = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center order-last lg:order-first">
               <img 
-                src="https://images.pexels.com/photos/1996338/pexels-photo-1996338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/Equine_Management.png"
                 alt="Professional equine management and training"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -260,7 +260,7 @@ export const Horses = () => {
       <section className="py-12 md:py-20 lg:py-32 bg-[#0B0B0B] text-white relative overflow-hidden" data-testid="contact-section">
         <div className="absolute inset-0 opacity-30">
           <img 
-            src="/dogCTA.jpeg"
+            src="/horseCta.png"
             alt="Equine supplement solutions"
             className="w-full h-full object-cover"
             style={{ objectPosition: 'center 60%' }}
