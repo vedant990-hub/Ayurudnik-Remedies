@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { MessageCircle, X, ArrowRight, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -19,41 +20,6 @@ export const Cosmetics = () => {
   const handleCancelWhatsApp = () => {
     setShowWhatsAppModal(false);
   };
-
-  const portfolioItems = [
-    {
-      title: 'Eye & Ear Cleaners',
-      description: 'Precisely balanced formulations for hygienic maintenance and microbial control'
-    },
-    {
-      title: 'Paw Balms',
-      description: 'Lipid-rich protective systems designed to restore and protect the paw barrier'
-    },
-    {
-      title: 'Honey-Based Ointments',
-      description: 'Naturally active formulations with antimicrobial and tissue-support properties'
-    },
-    {
-      title: 'Environmental Sprays',
-      description: 'Odor-neutralizing solutions designed for pet-safe environmental hygiene'
-    },
-    {
-      title: 'Anti-Itch Sprays',
-      description: 'Soothing dermal sprays utilizing bioactive botanicals to reduce irritation'
-    },
-    {
-      title: 'Anti-Tick & Flea Sprays',
-      description: 'Protective formulations offering effective control without aggressive chemical agents'
-    },
-    {
-      title: 'Shampoos & Conditioners',
-      description: 'Mild surfactant systems for regular grooming and coat optimization'
-    },
-    {
-      title: 'Body Sprays',
-      description: 'Daily-use formulations supporting freshness and animal comfort'
-    }
-  ];
 
   return (
     <div data-testid="cosmetics-page">
@@ -143,7 +109,7 @@ export const Cosmetics = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/cosmetic-1.png"
                 alt="Professional pet grooming and cosmetic care products"
                 className="w-full h-full object-cover"
                 loading="eager"
@@ -159,7 +125,7 @@ export const Cosmetics = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center order-last lg:order-first">
               <img 
-                src="https://images.pexels.com/photos/5632400/pexels-photo-5632400.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/Gentle-Effective%20Care-cosmetic.png"
                 alt="Pet grooming and care routine"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -180,46 +146,22 @@ export const Cosmetics = () => {
         </div>
       </section>
 
-      {/* Professional Product Portfolio */}
-      <section className="py-12 sm:py-18 md:py-24 lg:py-24 bg-white" data-testid="portfolio-section">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="mb-12 md:mb-16">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3 sm:mb-4">
-              Product Range
+      {/* Professional Product Portfolio - Redesigned */}
+      <section className="py-16 sm:py-20 md:py-28 bg-white" data-testid="portfolio-section">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-zinc-400 mb-3">
+              Product Architecture
             </p>
-            <h2 className="font-['Playfair_Display'] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[#0B0B0B] mb-6">
-              Professional Product Portfolio
+            <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl font-medium text-[#0B0B0B] mb-4">
+              Professional Cosmetic Product Range
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-zinc-600 leading-relaxed">
-              Our pet cosmetics portfolio includes advanced care solutions such as:
+            <p className="text-sm sm:text-base text-zinc-500 uppercase tracking-[0.15em] font-medium">
+              Engineered for Compliance, Performance, and Brand Scalability
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {portfolioItems.map((item, index) => (
-              <div 
-                key={index}
-                className="bg-white border border-zinc-200 p-6 hover:border-zinc-900 transition-colors duration-300"
-                data-testid={`portfolio-item-${index}`}
-              >
-                <h3 className="font-['Playfair_Display'] text-lg sm:text-xl font-medium mb-3 text-[#0B0B0B]">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
-            <img 
-              src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="Pet cosmetic product range and containers"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+          <ProductArchitectureGrid />
         </div>
       </section>
 
@@ -240,7 +182,7 @@ export const Cosmetics = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/3938015/pexels-photo-3938015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/cosmetic-3.png"
                 alt="Laboratory formulation and product development"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -256,7 +198,7 @@ export const Cosmetics = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center order-last lg:order-first">
               <img 
-                src="https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/cosmetic-5.png"
                 alt="Natural ingredients and botanical extracts"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -297,7 +239,7 @@ export const Cosmetics = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/3962629/pexels-photo-3962629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/cosmetic-6.png"
                 alt="Cosmetic packaging formats and containers"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -382,6 +324,158 @@ export const Cosmetics = () => {
           </div>
         </div>
       </section>
+    </div>
+  );
+};
+const ProductArchitectureGrid = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const products = [
+    {
+      title: 'Anti-Itch Sprays',
+      description: 'Targeted dermal relief formulations designed to reduce irritation and support skin barrier recovery using bioactive botanical compounds.',
+      authority: 'Private Label Ready'
+    },
+    {
+      title: 'Anti-Tick & Flea Sprays',
+      description: 'Protective formulations engineered for effective pest control while maintaining coat integrity and dermatological safety.',
+      authority: 'Export Compliant'
+    },
+    {
+      title: 'Shampoos & Conditioners',
+      description: 'Mild surfactant systems developed for routine grooming, coat nourishment, and long-term skin health optimization.',
+      authority: 'Scalable Production'
+    },
+    {
+      title: 'Body Sprays',
+      description: 'Daily-use freshness formulations designed to maintain hygiene and odor control in companion and livestock animals.',
+      authority: 'Private Label Manufacturing'
+    },
+    {
+      title: 'Eye & Ear Cleaners',
+      description: 'Precisely balanced formulations for hygienic maintenance and microbial control in sensitive anatomical regions.',
+      authority: 'Export Compliant'
+    },
+    {
+      title: 'Paw Balms',
+      description: 'Lipid-rich protective systems engineered to restore and reinforce the paw barrier against environmental stressors.',
+      authority: 'Custom Formulation Available'
+    },
+    {
+      title: 'Honey-Based Ointments',
+      description: 'Naturally active formulations with documented antimicrobial and tissue-support properties for wound care.',
+      authority: 'Scalable Production'
+    },
+    {
+      title: 'Environmental Sprays',
+      description: 'Odor-neutralizing solutions engineered for pet-safe environmental hygiene and microbial control.',
+      authority: 'Private Label Manufacturing'
+    }
+  ];
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05
+      }
+    }
+  };
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' }
+    }
+  };
+
+  return (
+    <div ref={ref}>
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+      >
+        {products.map((product) => (
+          <motion.div
+            key={product.title}
+            variants={itemVariants}
+            className="product-auth-card group relative bg-white border border-zinc-200 p-8 hover:shadow-[0_8px_24px_rgba(11,11,11,0.1)] hover:border-zinc-300 transition-all duration-300 rounded-sm overflow-hidden"
+          >
+            {/* Left Indicator Line */}
+            <motion.div
+              className="absolute left-0 top-0 w-1 h-12 bg-[#0B0B0B] group-hover:bg-zinc-700 transition-colors duration-300"
+            />
+
+            {/* Content with left padding for indicator */}
+            <div className="pl-0">
+              <motion.h3
+                className="font-['Playfair_Display'] text-xl sm:text-2xl font-medium text-[#0B0B0B] mb-4 uppercase tracking-[0.04em]"
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                {product.title}
+              </motion.h3>
+
+              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed mb-5">
+                {product.description}
+              </p>
+
+              {/* Technical Authority Micro-Line */}
+              <div className="flex items-center pt-4 border-t border-zinc-100">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-zinc-400">
+                  • {product.authority}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Section Divider */}
+      <motion.div
+        className="w-full h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent my-12"
+        initial={{ scaleX: 0 }}
+        animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+        transition={{ duration: 0.8, delay: 0.6, ease: 'easeInOut' }}
+        style={{ transformOrigin: 'center' }}
+      />
+
+      {/* CTA */}
+      <motion.div
+        className="mt-12 flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.6, delay: 0.7, ease: 'easeOut' }}
+      >
+        <Link
+          to="/contact"
+          className="group text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#0B0B0B] pb-2 border-b-2 border-transparent hover:border-[#0B0B0B] transition-all duration-300 inline-flex items-center gap-2 relative"
+        >
+          Request Product Specifications
+          <motion.div
+            initial={{ x: 0 }}
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ArrowRight size={14} strokeWidth={2} />
+          </motion.div>
+        </Link>
+      </motion.div>
     </div>
   );
 };

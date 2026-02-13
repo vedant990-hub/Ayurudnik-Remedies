@@ -163,7 +163,7 @@ export const PrivateLabelCustomSolutions = () => {
     { icon: FlaskConical, name: "Extracts" },
     { icon: Droplets, name: "Essential oils" },
     { icon: Pipette, name: "Tinctures" },
-    { icon: Bot, name: "Proteins" },
+    { icon: Dumbbell, name: "Proteins" },
     { icon: Fish, name: "Vegetable and fish oils" }
   ];
 
