@@ -257,13 +257,13 @@ export const Horses = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-12 md:py-20 lg:py-32 bg-[#0B0B0B] text-white relative overflow-hidden" data-testid="contact-section">
+      <section className="py-16 md:py-24 lg:py-40 min-h-[520px] bg-[#0B0B0B] text-white relative overflow-hidden" data-testid="contact-section">
         <div className="absolute inset-0 opacity-30">
           <img 
             src="/horseCta.png"
             alt="Equine supplement solutions"
             className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 60%' }}
+            style={{ objectPosition: 'center 40%' }}
             loading="lazy"
           />
         </div>
