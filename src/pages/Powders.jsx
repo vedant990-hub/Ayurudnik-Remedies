@@ -141,9 +141,9 @@ export const Powders = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/4021808/pexels-photo-4021808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/powder-1.png"
                 alt="Powdered nutritional supplements for animals"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded"
                 loading="eager"
               />
             </div>

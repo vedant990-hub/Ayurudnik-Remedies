@@ -139,7 +139,7 @@ export const Cattle = () => {
             </div>
             <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[400px]">
               <img 
-                src="https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/tablet1.png"
                 alt="Cattle supplemented tablets for livestock nutrition"
                 className="w-full h-full object-cover rounded"
                 loading="eager"
