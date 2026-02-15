@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { 
-  Zap,
-  Clock,
-  Palette,
-  Factory,
   Check,
   Dog,
   Bird,
@@ -105,26 +101,78 @@ export const PrivateLabelReadyMarket = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-animate]");
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const target = entry.target;
+          target.classList.add("opacity-100", "translate-x-0", "translate-y-0", "scale-100");
+          target.classList.remove(
+            "opacity-0",
+            "translate-x-6",
+            "-translate-x-6",
+            "translate-y-6",
+            "scale-90"
+          );
+          observer.unobserve(target);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   const benefits = [
     {
-      icon: Clock,
       title: "Faster time-to-market",
-      description: "Launch your product quickly with proven, market-tested formulations"
+      description: "Launch your product quickly with proven, market-tested formulations",
+      icon: (props) => (
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+          <circle cx="24" cy="24" r="16" />
+          <path d="M24 14v11l7 4" />
+          <path d="M14 9l3 3" />
+        </svg>
+      )
     },
     {
-      icon: Zap,
       title: "Reduced formulation development effort",
-      description: "Skip lengthy R&D cycles and bring solutions to market immediately"
+      description: "Skip lengthy R&D cycles and bring solutions to market immediately",
+      icon: (props) => (
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+          <path d="M26 4L10 26h10l-2 18L38 20H28l2-16z" />
+        </svg>
+      )
     },
     {
-      icon: Palette,
       title: "Flexible branding and dosage adaptation",
-      description: "Customize composition, packaging, and labeling to your brand identity"
+      description: "Customize composition, packaging, and labeling to your brand identity",
+      icon: (props) => (
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+          <path d="M24 10c-8.8 0-16 6.5-16 14.5S15.2 39 24 39c2.1 0 3.8-1.7 3.8-3.8 0-1.8-1.4-3.2-3.2-3.2h-2" />
+          <circle cx="16" cy="20" r="2" />
+          <circle cx="25" cy="16" r="2" />
+          <circle cx="32" cy="22" r="2" />
+        </svg>
+      )
     },
     {
-      icon: Factory,
       title: "Reliable, scalable production",
-      description: "GMP-certified manufacturing with consistent quality and dependable supply"
+      description: "GMP-certified manufacturing with consistent quality and dependable supply",
+      icon: (props) => (
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+          <path d="M10 38V20l10 6v-6l10 6v-6l8 5v13H10z" />
+          <path d="M14 38v-6h6v6" />
+          <path d="M26 12v8" />
+          <path d="M32 10v10" />
+        </svg>
+      )
     }
   ];
 
@@ -138,7 +186,7 @@ export const PrivateLabelReadyMarket = () => {
         "Anti-stress solutions",
         "Multivitamins"
       ],
-      image: "https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/dogCTA.jpeg",
       icon: Dog
     },
     {
@@ -151,7 +199,7 @@ export const PrivateLabelReadyMarket = () => {
         "Respiratory support",
         "Performance support"
       ],
-      image: "https://images.pexels.com/photos/2768555/pexels-photo-2768555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/horseCta.png",
       icon: Leaf
     },
     {
@@ -174,19 +222,8 @@ export const PrivateLabelReadyMarket = () => {
         "Intestinal health",
         "Electrolyte solutions"
       ],
-      image: "https://images.pexels.com/photos/163186/cow-standing-grass-farm-163186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/cowCta.png",
       icon: Beef
-    },
-    {
-      title: "Hobby Poultry",
-      products: [
-        "Eggshell quality",
-        "Moulting support",
-        "Parasite management",
-        "Gut health"
-      ],
-      image: "https://images.pexels.com/photos/33537/child-bird-birds-bird-house.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      icon: Heart
     }
   ];
 
@@ -303,7 +340,7 @@ export const PrivateLabelReadyMarket = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
               <img 
-                src="https://images.pexels.com/photos/3873146/pexels-photo-3873146.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/ready-market-1.png"
                 alt="Professional animal supplement products with premium packaging"
                 className="w-full h-full object-cover"
                 data-testid="hero-image"
@@ -335,10 +372,18 @@ export const PrivateLabelReadyMarket = () => {
               return (
                 <article
                   key={index}
-                  className="bg-white p-8 border border-zinc-200 hover:border-[#0B0B0B] hover:shadow-lg transition-all duration-300"
+                  className="bg-white p-8 border border-zinc-200 opacity-0 translate-y-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#0B0B0B]/40 hover:shadow-lg"
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                  data-animate="benefit-card"
                   data-testid={`benefit-${index}`}
                 >
-                  <Icon size={40} strokeWidth={1.5} className="mb-6 text-[#0B0B0B]" aria-hidden="true" />
+                  <div
+                    className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-zinc-50 text-[#0B0B0B] opacity-0 scale-90 transition-all duration-500 ease-out"
+                    style={{ transitionDelay: `${index * 150 + 150}ms` }}
+                    data-animate="benefit-icon"
+                  >
+                    <Icon className="h-8 w-8" aria-hidden="true" />
+                  </div>
                   <h3 className="font-['Playfair_Display'] text-xl font-medium mb-3 text-[#0B0B0B]">
                     {benefit.title}
                   </h3>
@@ -367,41 +412,38 @@ export const PrivateLabelReadyMarket = () => {
             </p>
           </div>
 
-          <div className="space-y-16">
-            {speciesCategories.map((category, index) => {
-              const Icon = category.icon;
-              const isEven = index % 2 === 0;
-              return (
-                <article key={index} data-testid={`species-${index}`}>
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
-                    <div className={isEven ? '' : 'lg:order-last'}>
-                      <div className="flex items-center gap-3 mb-6">
-                        <Icon size={32} strokeWidth={1.5} className="text-[#0B0B0B]" aria-hidden="true" />
-                        <h3 className="font-['Playfair_Display'] text-3xl font-medium text-[#0B0B0B]">
-                          {category.title}
-                        </h3>
-                      </div>
-                      <ul className="space-y-3">
-                        {category.products.map((product, pIndex) => (
-                          <li key={pIndex} className="flex items-center gap-3 text-zinc-700">
-                            <Check size={18} strokeWidth={2.5} className="text-green-600 flex-shrink-0" aria-hidden="true" />
-                            <span className="text-sm font-medium">{product}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="relative h-80">
-                      <img 
-                        src={category.image}
-                        alt={`${category.title} animal health supplements`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {speciesCategories.map((category, index) => (
+              <article
+                key={index}
+                className="bg-white border border-zinc-200 rounded-2xl shadow-[0_14px_30px_rgba(15,15,15,0.06)] overflow-hidden opacity-0 translate-y-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(15,15,15,0.12)]"
+                style={{ transitionDelay: `${index * 150}ms` }}
+                data-animate="species-card"
+                data-testid={`species-${index}`}
+              >
+                <div className="w-full" style={{ aspectRatio: "16 / 9" }}>
+                  <img
+                    src={category.image}
+                    alt={`${category.title} animal health supplements`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="font-['Playfair_Display'] text-2xl font-medium text-[#0B0B0B] mb-4">
+                    {category.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {category.products.map((product, pIndex) => (
+                      <li key={pIndex} className="flex items-start gap-3 text-zinc-700">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#0B0B0B] flex-shrink-0" aria-hidden="true" />
+                        <span className="text-sm font-semibold">{product}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -409,7 +451,7 @@ export const PrivateLabelReadyMarket = () => {
       {/* How It Works */}
       <section className="py-24 bg-zinc-50" data-testid="process-section" aria-labelledby="process-heading">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4">
               Streamlined Process
             </p>
@@ -421,29 +463,47 @@ export const PrivateLabelReadyMarket = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, index) => (
-              <div 
-                key={index}
-                className="bg-white p-8 border border-zinc-200 relative"
-                data-testid={`step-${index}`}
-              >
-                <div className="text-5xl font-bold text-zinc-200 font-['Playfair_Display'] mb-4">
-                  {step.number}
-                </div>
-                <h3 className="font-['Playfair_Display'] text-xl font-medium mb-4 text-[#0B0B0B]">
-                  {step.title}
-                </h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">
-                  {step.description}
-                </p>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute -right-3 top-1/2 transform -translate-y-1/2 text-zinc-400">
-                    <ArrowRight size={24} strokeWidth={1.5} />
+          <div className="relative">
+            <div className="absolute left-4 md:left-1/2 top-0 h-full w-px bg-[#0B0B0B]/20" aria-hidden="true" />
+            <div className="space-y-10 md:space-y-16">
+              {steps.map((step, index) => {
+                const isEven = index % 2 === 0;
+                const sideTranslate = isEven ? "-translate-x-6" : "translate-x-6";
+                const cardPlacement = isEven
+                  ? "md:col-start-1 md:justify-self-end md:pr-12"
+                  : "md:col-start-2 md:justify-self-start md:pl-12";
+
+                return (
+                  <div
+                    key={index}
+                    className="relative md:grid md:grid-cols-2 md:items-start"
+                    data-testid={`step-${index}`}
+                  >
+                    <span
+                      className="absolute left-4 md:left-1/2 top-8 h-3 w-3 -translate-x-1/2 rounded-full bg-[#0B0B0B]"
+                      aria-hidden="true"
+                    />
+                    <div className={`pl-12 md:pl-0 ${cardPlacement}`}>
+                      <div
+                        className={`bg-white p-8 md:p-10 rounded-2xl shadow-[0_18px_40px_rgba(15,15,15,0.08)] opacity-0 ${sideTranslate} transition-all duration-700 ease-out`}
+                        style={{ transitionDelay: `${index * 180}ms` }}
+                        data-animate="timeline-step"
+                      >
+                        <div className="text-3xl md:text-4xl font-semibold text-[#0B0B0B]/25 font-['Playfair_Display'] mb-4">
+                          {step.number}
+                        </div>
+                        <h3 className="font-['Playfair_Display'] text-2xl font-medium mb-4 text-[#0B0B0B]">
+                          {step.title}
+                        </h3>
+                        <p className="text-zinc-600 text-sm md:text-base leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -452,11 +512,11 @@ export const PrivateLabelReadyMarket = () => {
       <section className="py-24 bg-white" data-testid="quality-section" aria-labelledby="quality-heading">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative h-[500px]">
+            <div className="relative w-full" style={{ aspectRatio: "1024 / 940" }}>
               <img 
-                src="https://images.pexels.com/photos/3938015/pexels-photo-3938015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/custom-high.png"
                 alt="GMP-certified pharmaceutical manufacturing facility with quality control"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 data-testid="quality-image"
                 loading="lazy"
               />
