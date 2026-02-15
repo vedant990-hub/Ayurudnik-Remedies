@@ -393,11 +393,11 @@ export const PrivateLabelCustomSolutions = () => {
               </ul>
             </div>
 
-            <div className="relative h-[600px]">
+            <div className="relative w-full" style={{ aspectRatio: '1024 / 940' }}>
               <img 
-                src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/custom-high.png"
                 alt="Natural botanical extracts, essential oils, and high-quality ingredients used in animal health formulations"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 data-testid="ingredients-image"
                 loading="lazy"
               />
@@ -412,7 +412,7 @@ export const PrivateLabelCustomSolutions = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[500px] order-2 lg:order-1">
               <img 
-                src="https://images.pexels.com/photos/3873146/pexels-photo-3873146.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/custom-pack.png"
                 alt="Various product forms and packaging options for animal health supplements including bottles, jars, and containers"
                 className="w-full h-full object-cover"
                 data-testid="packaging-image"
