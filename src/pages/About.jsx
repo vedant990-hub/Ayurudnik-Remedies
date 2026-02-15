@@ -150,7 +150,7 @@ export const About = () => {
       />
       {/* Hero Section - Split Layout */}
       <section
-        className="relative overflow-hidden py-24 md:py-32 bg-white"
+        className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-b from-white to-[#fafbfc]"
         data-testid="about-hero"
       >
         <div className="hero-aurora" aria-hidden="true" />
@@ -206,10 +206,8 @@ export const About = () => {
         </div>
       </section>
 
-      <motion.div className="section-divider" style={{ y: dividerParallax }} aria-hidden="true" />
-
       {/* Mission & Vision */}
-      <section className="py-16 sm:py-20 md:py-28 bg-zinc-50" data-testid="mission-vision">
+      <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#f8f9fa] to-[#f5f6f7] border-t border-gray-100" data-testid="mission-vision">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             <motion.div
@@ -263,10 +261,9 @@ export const About = () => {
         </div>
       </section>
 
-      <motion.div className="section-divider" style={{ y: dividerParallax }} aria-hidden="true" />
 
       {/* How We Work */}
-      <section className="py-16 sm:py-20 md:py-28 bg-white" data-testid="how-we-work">
+      <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-white to-[#fafbfc] border-t border-gray-100" data-testid="how-we-work">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-12" ref={timelineRef}>
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4">
@@ -339,10 +336,8 @@ export const About = () => {
         </div>
       </section>
 
-      <motion.div className="section-divider" style={{ y: dividerParallax }} aria-hidden="true" />
-
       {/* Development Timelines */}
-      <section className="py-16 sm:py-20 md:py-28 bg-zinc-50" data-testid="development-timelines">
+      <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#faf9f7] to-[#f7f5f2] border-t border-gray-100" data-testid="development-timelines">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-12" ref={timelinesRef}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {comparisonCards.map((card, index) => {
@@ -382,10 +377,8 @@ export const About = () => {
         </div>
       </section>
 
-      <motion.div className="section-divider" style={{ y: dividerParallax }} aria-hidden="true" />
-
       {/* Trust & Compliance */}
-      <section className="py-16 sm:py-20 md:py-28 bg-white trust-grid" data-testid="trust-compliance">
+      <section className="py-16 sm:py-20 md:py-28 border-t border-gray-100 trust-grid" data-testid="trust-compliance">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-3xl mb-10 sm:mb-12">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4">
@@ -435,8 +428,6 @@ export const About = () => {
           </div>
         </div>
       </section>
-
-      <motion.div className="section-divider" style={{ y: dividerParallax }} aria-hidden="true" />
 
       {/* Call to Action */}
       <section 
