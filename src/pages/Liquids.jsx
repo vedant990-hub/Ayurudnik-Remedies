@@ -147,9 +147,9 @@ export const Liquids = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img
-                src="https://images.pexels.com/photos/3844716/pexels-photo-3844716.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/liquid1.png"
                 alt="Liquid supplement formulations and bottles"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded"
                 loading="eager"
               />
             </div>
