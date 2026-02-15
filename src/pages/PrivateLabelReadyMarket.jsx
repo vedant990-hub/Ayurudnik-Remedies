@@ -203,7 +203,7 @@ export const PrivateLabelReadyMarket = () => {
       icon: Leaf
     },
     {
-      title: "Poultry & Birds",
+      title: "Poultry",
       products: [
         "Vitamins",
         "Electrolytes",

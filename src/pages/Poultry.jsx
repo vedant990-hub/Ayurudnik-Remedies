@@ -158,7 +158,7 @@ export const Poultry = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/4397841/pexels-photo-4397841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/poultry-1.png"
                 alt="Professional poultry farm with hens"
                 className="w-full h-full object-cover"
                 loading="eager"
@@ -216,7 +216,7 @@ export const Poultry = () => {
             </div>
             <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center">
               <img 
-                src="https://images.pexels.com/photos/5632404/pexels-photo-5632404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/poultry-2.png"
                 alt="Poultry farm operations and supplement solutions"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -229,20 +229,12 @@ export const Poultry = () => {
       {/* Professional Use Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-zinc-50" data-testid="professional-section">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-            <div className="relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded flex items-center justify-center order-last lg:order-first">
-              <img 
-                src="https://images.pexels.com/photos/4397847/pexels-photo-4397847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Professional poultry nutrition and farm management"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="max-w-3xl">
+          <div className="flex justify-start">
+            <div className="max-w-4xl">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-4 sm:mb-6">
                 Operations & Compliance
               </p>
-              <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl font-medium text-[#0B0B0B] mb-12 leading-tight">
+              <h2 className="font-['Playfair_Display'] text-3xl sm:text-4xl md:text-5xl font-medium text-[#0B0B0B] mb-12 leading-tight md:whitespace-nowrap">
                 Designed for Professional Poultry Operations
               </h2>
               <div className="space-y-6">
@@ -274,10 +266,10 @@ export const Poultry = () => {
       <section className="py-12 md:py-20 lg:py-32 bg-[#0B0B0B] text-white relative overflow-hidden" data-testid="contact-section">
         <div className="absolute inset-0 opacity-30">
           <img 
-            src="/dogCTA.jpeg"
+            src="/poultry-cta.png"
             alt="Poultry supplement solutions"
             className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 60%' }}
+            style={{ objectPosition: 'center 80%' }}
             loading="lazy"
           />
         </div>

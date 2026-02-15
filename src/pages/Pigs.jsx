@@ -134,7 +134,7 @@ export const Pigs = () => {
             </div>
             <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[400px]">
               <img 
-                src="https://images.pexels.com/photos/162240/pig-mud-bath-mud-wallow-pig-162240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src="/pig-1.png"
                 alt="Commercial pig farming operations"
                 className="w-full h-full object-cover rounded"
                 loading="eager"
