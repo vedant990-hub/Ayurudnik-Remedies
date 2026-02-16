@@ -366,12 +366,10 @@ export const Footer = () => {
                 <div>
                   <p className="font-medium text-white mb-3">Address</p>
                   <p className="text-xs leading-relaxed text-zinc-400">
-                    F.NO: 02, 1st Floor,<br />
-                    Mauli A Building,<br />
-                    Nr Thakare Hospital,<br />
-                    Saraswati Nagar, 10th Mail,<br />
-                    Ozar Mig, NASHIK - 422206<br />
-                    India
+                    Gat No. 604/4,<br />
+                    Janori-Jaulake Road, Janori,<br />
+                    Tal. Dindori, Dist. Nashik,<br />
+                    Maharashtra, India - 422206
                   </p>
                 </div>
               </div>

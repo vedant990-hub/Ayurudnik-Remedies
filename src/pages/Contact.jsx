@@ -88,10 +88,10 @@ export const Contact = () => {
                     </h3>
                     <p className="text-[#0B0B0B] text-lg">Ayurudnik Remedies Pvt. Ltd.</p>
                     <p className="text-zinc-600 text-sm">
-                      F.NO: 02, 1st Floor, Mauli A Building,<br />
-                      Nr Thakare Hospital, Saraswati Nagar,<br />
-                      10th Mail, Ozar Mig,<br />
-                      NASHIK - 422206, India
+                      Gat No. 604/4, Janori-Jaulake Road,<br />
+                      Janori, Tal. Dindori,<br />
+                      Dist. Nashik, Maharashtra,<br />
+                      India - 422206
                     </p>
                   </div>
                 </div>
@@ -261,14 +261,14 @@ export const Contact = () => {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="border border-zinc-200 overflow-hidden h-[500px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.8426519837263!2d75.10467242346901!3d19.886936082157928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bce46e4e0000001%3A0xf01abfb7ae6fa7c8!2sOzar%2C%20Nashik!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1051.5225196787665!2d73.8900455095045!3d20.08391602680247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddc3b4e9ff685f%3A0x9c5dbfb197df8bad!2sMETALS%20UNITED%20ALLOYS%20AND%20FUSION%20PRODUCTS%20LTD!5e0!3m2!1sen!2sin!4v1771219772809!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ayurudnik Office Location - Nashik"
+              title="Ayurudnik Office Location - Janori, Dindori, Nashik"
               data-testid="location-map"
             ></iframe>
           </div>
