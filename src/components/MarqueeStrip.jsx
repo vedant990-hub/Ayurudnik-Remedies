@@ -38,7 +38,7 @@ export const MarqueeStrip = React.memo(() => {
         }
 
         .marquee-animate {
-          animation: marqueeScroll 30s linear infinite;
+          animation: marqueeScroll 10s linear infinite;
           will-change: transform;
           transform: translateZ(0);
           backface-visibility: hidden;
@@ -48,7 +48,18 @@ export const MarqueeStrip = React.memo(() => {
 
         /* Smooth hover slowdown instead of complete stop */
         .marquee-animate:hover {
-          animation-duration: 45s;
+          animation-duration: 15s;
+        }
+
+        /* Even faster on mobile */
+        @media (max-width: 768px) {
+          .marquee-animate {
+            animation-duration: 8s;
+          }
+
+          .marquee-animate:hover {
+            animation-duration: 12s;
+          }
         }
 
         /* Respect user motion preferences */
