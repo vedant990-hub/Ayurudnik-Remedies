@@ -81,7 +81,6 @@ export const Products = () => {
                       src={format.image}
                       alt={format.title}
                       className="w-full h-full object-cover"
-                      loading="lazy"
                     />
                   </div>
                   
