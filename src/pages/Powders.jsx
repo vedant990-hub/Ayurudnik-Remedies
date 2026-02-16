@@ -145,6 +145,7 @@ export const Powders = () => {
                 alt="Powdered nutritional supplements for animals"
                 className="w-full h-full object-cover rounded"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>

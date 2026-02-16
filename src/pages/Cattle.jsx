@@ -143,6 +143,7 @@ export const Cattle = () => {
                 alt="Cattle supplemented tablets for livestock nutrition"
                 className="w-full h-full object-cover rounded"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Linkedin, MessageCircle, Mail } from 'lucide-react';
+import { OptimizedImage } from './OptimizedImage';
 
 export const Header = () => {
   const location = useLocation();
@@ -61,10 +62,11 @@ export const Header = () => {
           className="flex items-center gap-3"
           data-testid="logo-link"
         >
-          <img 
+          <OptimizedImage 
             src="/logo2.png" 
             alt="Ayurudnik Logo" 
             className="h-12 w-12 object-contain"
+            priority={true}
           />
           <span className="font-['Playfair_Display'] text-2xl font-bold text-[#0B0B0B] tracking-tight">
             AYURUDNIK
@@ -218,10 +220,11 @@ export const Footer = () => {
             {/* Company Section */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-8">
-                <img 
+                <OptimizedImage 
                   src="/logo2.png" 
                   alt="Ayurudnik Logo" 
                   className="h-10 w-10 object-contain"
+                  priority={false}
                 />
                 <h3 className="font-['Playfair_Display'] text-3xl font-bold">
                   AYURUDNIK

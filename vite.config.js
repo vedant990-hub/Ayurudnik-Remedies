@@ -20,6 +20,20 @@
     build: {
       outDir: 'dist',
       sourcemap: false,
+      assetsInlineLimit: 4096,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor': ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+          },
+        },
+      },
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
     },
     optimizeDeps: {
       esbuildOptions: {
@@ -28,4 +42,5 @@
         },
       },
     },
+    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
   })
