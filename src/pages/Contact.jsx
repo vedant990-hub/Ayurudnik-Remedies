@@ -261,7 +261,7 @@ export const Contact = () => {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="border border-zinc-200 overflow-hidden h-[500px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1051.5225196787665!2d73.8900455095045!3d20.08391602680247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddc3b4e9ff685f%3A0x9c5dbfb197df8bad!2sMETALS%20UNITED%20ALLOYS%20AND%20FUSION%20PRODUCTS%20LTD!5e0!3m2!1sen!2sin!4v1771219772809!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3747.1980401197584!2d73.88661007523122!3d20.084006681339375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDA1JzAyLjQiTiA3M8KwNTMnMjEuMSJF!5e0!3m2!1sen!2sin!4v1771236657888!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
