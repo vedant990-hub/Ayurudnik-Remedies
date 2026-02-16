@@ -23,36 +23,36 @@ export const CookieConsent = () => {
 
   return (
     <div 
-      className="fixed bottom-6 left-6 z-50 bg-zinc-900 border-2 border-zinc-700 shadow-2xl rounded-lg max-w-sm"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-zinc-900 border-t-2 border-zinc-700 shadow-2xl"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       data-testid="cookie-consent-banner"
       role="region"
       aria-label="Cookie consent"
     >
-      <div className="p-6">
-        {/* Text Content */}
-        <div className="mb-4">
-          <h3 className="text-lg font-bold text-white mb-2">
-            🍪 We use cookies
-          </h3>
-          <p className="text-sm text-zinc-200 leading-relaxed">
-            We use cookies to improve your browsing experience.{' '}
-            <a 
-              href="/cookie-policy.html"
-              className="text-blue-400 hover:text-blue-300 underline transition-colors duration-200 font-medium"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn more
-            </a>
-          </p>
-        </div>
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-12 py-4 sm:py-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 pr-20">
+          {/* Text Content */}
+          <div className="flex-1">
+            <h3 className="text-base font-bold text-white mb-1">
+              🍪 We use cookies
+            </h3>
+            <p className="text-sm text-zinc-200 leading-relaxed">
+              We use cookies to improve your browsing experience.{' '}
+              <a 
+                href="/cookie-policy.html"
+                className="text-blue-400 hover:text-blue-300 underline transition-colors duration-200 font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more
+              </a>
+            </p>
+          </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3">
+          {/* Accept Button */}
           <button
             onClick={handleAccept}
-            className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
+            className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm rounded-lg transition-colors duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
             data-testid="cookie-accept-button"
             aria-label="Accept cookies"
           >
