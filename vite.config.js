@@ -23,8 +23,26 @@
       assetsInlineLimit: 4096,
       rollupOptions: {
         output: {
-          manualChunks: {
-            'vendor': ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+          manualChunks: (id) => {
+            // Vendor chunks
+            if (id.includes('node_modules/react')) {
+              return 'vendor-react';
+            }
+            if (id.includes('node_modules/react-router')) {
+              return 'vendor-router';
+            }
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+            // Page chunks for code splitting
+            if (id.includes('/pages/')) {
+              const pageName = id.match(/\/pages\/(\w+)/)?.[1];
+              return `page-${pageName}`;
+            }
+            // Component chunks
+            if (id.includes('/components/')) {
+              return 'components';
+            }
           },
         },
       },

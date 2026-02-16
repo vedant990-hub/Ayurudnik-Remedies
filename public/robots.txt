@@ -1,0 +1,34 @@
+# Robots.txt for Ayurudnik Remedies
+# Allow all crawlers to index the site
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+Disallow: /temp/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://ayurudnik.com/sitemap.xml

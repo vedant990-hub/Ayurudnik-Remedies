@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { MarqueeStrip } from '../components/MarqueeStrip';
 
 export const Products = () => {
   return (
@@ -21,6 +22,9 @@ export const Products = () => {
           </div>
         </div>
       </section>
+
+      {/* Marquee Strip */}
+      <MarqueeStrip />
 
       {/* Product Categories */}
       <section className="py-16 sm:py-24 md:py-32 lg:py-40 bg-white" data-testid="product-categories">
@@ -77,6 +81,7 @@ export const Products = () => {
                       src={format.image}
                       alt={format.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </div>
                   

@@ -65,7 +65,7 @@ export const Contact = () => {
                     </h3>
                     <a href="mailto:dpawar@ayurudnik.com" className="text-[#0B0B0B] text-lg hover:underline">dpawar@ayurudnik.com</a>
                     <br />
-                    <a href="mailto:maher@ayurudnik.com" className="text-zinc-600 text-sm hover:underline">maher@ayurudnik.com</a>
+                    <a href="mailto:maher@ayurudnik.com" className="text-[#0B0B0B] text-lg hover:underline">maher@ayurudnik.com</a>
                   </div>
                 </div>
 
