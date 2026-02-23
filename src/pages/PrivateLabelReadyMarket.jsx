@@ -211,7 +211,7 @@ export const PrivateLabelReadyMarket = () => {
         "Respiratory support",
         "Endurance support"
       ],
-      image: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "/poultry-1.png",
       icon: Bird
     },
     {
