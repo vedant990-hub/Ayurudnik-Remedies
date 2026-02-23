@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Factory, Truck, Users, Microscope, FlaskConical, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Statistics } from '../components/Statistics';
+import { Helmet } from 'react-helmet-async';
 
 export const Home = () => {
   const [isProcessVisible, setIsProcessVisible] = useState(false);
@@ -43,8 +44,45 @@ export const Home = () => {
     };
   }, []);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ayurudnik.com/#website",
+        "url": "https://ayurudnik.com/",
+        "name": "Ayurudnik Remedies",
+        "description": "Leading animal nutrition manufacturer specializing in veterinary supplements and private label manufacturing",
+        "publisher": {
+          "@id": "https://ayurudnik.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://ayurudnik.com/#organization",
+        "name": "Ayurudnik Remedies",
+        "url": "https://ayurudnik.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ayurudnik.com/logo2.png"
+        }
+      }
+    ]
+  };
+
   return (
     <div data-testid="home-page">
+      <Helmet>
+        <title>Ayurudnik Remedies | Animal Nutrition & Veterinary Supplement Manufacturer</title>
+        <meta 
+          name="description" 
+          content="Leading animal nutrition manufacturer specializing in veterinary supplements and private label manufacturing. Premium quality formulations for animal health." 
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center" data-testid="hero-section">
         <div className="absolute inset-0 overflow-hidden">
