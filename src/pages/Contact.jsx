@@ -30,9 +30,9 @@ export const Contact = () => {
   return (
     <div data-testid="contact-page">
       {/* Hero */}
-      <section className="py-32 bg-white" data-testid="contact-hero">
+      <section className="py-16 md:py-20 bg-white" data-testid="contact-hero">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6">
               Get In Touch
             </p>

@@ -3,12 +3,49 @@ import { ArrowRight, CheckCircle2, Factory, Truck, Users, Microscope, FlaskConic
 import { Link } from 'react-router-dom';
 import { Statistics } from '../components/Statistics';
 import { Helmet } from 'react-helmet-async';
+import './HeroSection.css';
 
 export const Home = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [heroRevealed, setHeroRevealed] = useState(false);
   const [isProcessVisible, setIsProcessVisible] = useState(false);
   const [isWhyChooseVisible, setIsWhyChooseVisible] = useState(false);
   const processRef = useRef(null);
   const whyChooseRef = useRef(null);
+
+  useEffect(() => {
+    let scrollLocked = true;
+
+    const handleWheel = (e) => {
+      if (scrollLocked && !heroRevealed && window.scrollY < 10) {
+        e.preventDefault();
+        setIsScrolled(true);
+        setHeroRevealed(true);
+        setTimeout(() => {
+          scrollLocked = false;
+        }, 600); // Match CSS transition duration
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (scrollLocked && !heroRevealed && window.scrollY < 10) {
+        e.preventDefault();
+        setIsScrolled(true);
+        setHeroRevealed(true);
+        setTimeout(() => {
+          scrollLocked = false;
+        }, 600);
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, [heroRevealed]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -84,38 +121,30 @@ export const Home = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center" data-testid="hero-section">
-        <div className="absolute inset-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            data-testid="hero-video"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-industrial-factory-interior-with-workers-31565-large.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
+      <section className="hero-section" data-testid="hero-section">
+        <div className={`hero-background ${isScrolled ? 'scrolled' : ''}`}></div>
         
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
-          <div className="max-w-4xl">
-            <h1 
-              className="font-['Playfair_Display'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white leading-[1.1] mb-4 sm:mb-6"
-              data-testid="hero-title"
-            >
-              Purity in Every Drop
-            </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl">
-              Premium veterinary formulations and feed supplements engineered for excellence in animal health.
-            </p>
+        <div className={`hero-content ${isScrolled ? 'visible' : ''}`}>
+          <h1 className="hero-heading" data-testid="hero-title">
+            Private Label Veterinary Supplement Manufacturing
+          </h1>
+          <p className="hero-subheading">
+            High-quality formulations for livestock, poultry, and companion animals.
+          </p>
+          <div className="hero-buttons">
             <Link 
               to="/products"
               data-testid="hero-cta"
-              className="inline-flex items-center gap-3 bg-white text-[#0B0B0B] hover:bg-zinc-100 h-12 sm:h-14 px-6 sm:px-10 uppercase tracking-[0.15em] text-xs font-bold transition-all duration-300"
+              className="hero-btn hero-btn-primary"
             >
               Explore Products <ArrowRight size={16} strokeWidth={2} />
+            </Link>
+            <Link 
+              to="/contact"
+              data-testid="hero-contact-cta"
+              className="hero-btn hero-btn-secondary"
+            >
+              Contact Us <ArrowRight size={16} strokeWidth={2} />
             </Link>
           </div>
         </div>
