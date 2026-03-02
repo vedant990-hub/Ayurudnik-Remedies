@@ -257,7 +257,7 @@ export const Footer = () => {
                   </svg>
                 </a>
                 <a 
-                  href="mailto:dpawar@ayurudnik.com"
+                  href="mailto:info@ayurudnik.com"
                   aria-label="Send us an email"
                   className="w-10 h-10 flex items-center justify-center rounded-full text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all duration-300"
                 >
@@ -349,11 +349,11 @@ export const Footer = () => {
               <div className="space-y-6 text-sm text-zinc-400">
                 <div>
                   <p className="font-medium text-white mb-3">Email</p>
-                  <a href="mailto:dpawar@ayurudnik.com" className="block hover:text-white hover:translate-x-1 transition-all duration-200 text-sm">
-                    dpawar@ayurudnik.com
+                  <a href="mailto:info@ayurudnik.com" className="block hover:text-white hover:translate-x-1 transition-all duration-200 text-sm">
+                    info@ayurudnik.com
                   </a>
-                  <a href="mailto:maher@ayurudnik.com" className="block hover:text-white hover:translate-x-1 transition-all duration-200 text-sm">
-                    maher@ayurudnik.com
+                  <a href="mailto:Care@ayurudnik.com" className="block hover:text-white hover:translate-x-1 transition-all duration-200 text-sm">
+                    Care@ayurudnik.com
                   </a>
                 </div>
                 <div>
