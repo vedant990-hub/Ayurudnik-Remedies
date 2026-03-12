@@ -380,7 +380,7 @@ export const Footer = () => {
           
           {/* Copyright / Credit line - reduced hierarchy */}
           <div className="text-center">
-            <p className="text-xs text-zinc-600">© 2026 Ayurudnik Remedies. All rights reserved. | Website designed by Vedant Pawar</p>
+            <p className="text-xs text-zinc-600">© 2026 Ayurudnik Remedies. All rights reserved. | Website designed by <a href="https://pawarvedant.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200 underline underline-offset-2">Vedant Pawar</a></p>
           </div>
         </div>
       </div>
